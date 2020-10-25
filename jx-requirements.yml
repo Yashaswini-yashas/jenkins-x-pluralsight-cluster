@@ -1,0 +1,43 @@
+cluster:
+  clusterName: "ps-jenkinsx-cluster"
+  devEnvApprovers: []
+  environmentGitOwner: ""
+  project: "pluralsight-jen-x-course"
+  provider: gke
+  zone: "us-central1-a"
+ gitops: true 
+ environments:
+- key: dev
+- key: staging
+- key: production
+ingress:
+  domain: ""
+  externalDNS: false
+  tls:
+    email: ""      
+    enabled: false
+    production: true
+kaniko: true
+storage:
+  backup:
+    enabled: false
+  logs:
+    enabled: true
+    url: gs://logs-ps-jenkinsx-cluster-a26fd6a188e2
+  reports:
+    enabled: true
+    url: gs://reports-ps-jenkinsx-cluster-a26fd6a188e2
+  repository:
+    enabled: true      
+    url: gs://repository-ps-jenkinsx-cluster-a26fd6a188e2
+secretStorage: vault
+vault:
+  name: ps-jenkinsx-cluster      
+  bucket: vault-ps-jenkinsx-cluster-a26fd6a188e2
+  key: crypto-key-ps-jenkinsx-cluster-a26fd6a188e2
+  keyring: keyring-ps-jenkinsx-cluster-a26fd6a188e2
+  serviceAccount: ps-jenkinsx-cluster-vt
+versionStream:
+  ref: master
+  url: https://github.com/jenkins-x/jenkins-x-versions.git
+webhook: "lighthouse"  
